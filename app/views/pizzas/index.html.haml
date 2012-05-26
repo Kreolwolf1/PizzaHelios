@@ -1,0 +1,25 @@
+%h1{:style => "color: red"} Pizza Catalog
+= link_to '+ Add Pizza', new_pizza_path
+%hr
+%br
+- @pizzas.each do |pizza|  
+  .pizza_item{:style => "border: 2px solid #d88c2e; width: 600px; margin: 10px; -moz-border-radius: 20px;  -webkit-border-radius: 20px; border-radius: 20px"}
+    %table
+      %tr
+        %td{:style => "width: 170px;"}
+          .photo{:style => "margin: 5px"}
+            = image_tag pizza.photo.url(:small)
+        %td  
+          .pizza_details{:style => "margin: 10px"}  
+            %h2{:style => "color: red"}= pizza.name
+            %p="Cost: $#{pizza.cost} Mass: #{pizza.mass} g Diameter: #{pizza.diameter} cm"
+            %hr
+            .pizza_description
+              %b= "Description:"
+              %br
+              = truncate(pizza.description, :length => 80) 
+            %hr
+            .pizza_actions{}
+              = link_to 'Show', pizza
+              = link_to 'Edit', edit_pizza_path(pizza)
+              = link_to 'Destroy', pizza, :confirm => 'Are you sure?', :method => :delete

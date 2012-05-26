@@ -17,3 +17,6 @@ tmp
 _yardoc
 doc/
 config/*.yml
+public/system/
+*~
+**/*.*~
