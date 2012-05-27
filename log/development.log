@@ -1640,3 +1640,78 @@ Started GET "/pizzas/3" for 127.0.0.1 at 2012-05-27 14:17:36 +0300
   [1m[35mPizza Load (0.3ms)[0m  SELECT `pizzas`.* FROM `pizzas` WHERE `pizzas`.`id` = 3 LIMIT 1
 Rendered pizzas/show.html.haml within layouts/application (19.0ms)
 Completed 200 OK in 29ms (Views: 21.8ms | ActiveRecord: 0.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/igor/sites/helios/PizzaHelios/config/environment.rb:5)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2012-05-27 15:06:10 +0300
+  Processing by PizzasController#index as HTML
+  [1m[36mPizza Load (0.2ms)[0m  [1mSELECT `pizzas`.* FROM `pizzas`[0m
+Rendered pizzas/index.html.haml within layouts/application (38.2ms)
+Completed 200 OK in 79ms (Views: 41.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pizzas/new" for 127.0.0.1 at 2012-05-27 15:06:13 +0300
+  Processing by PizzasController#new as HTML
+Rendered pizzas/_form.html.haml (75.5ms)
+Rendered pizzas/new.html.haml within layouts/application (78.7ms)
+Completed 200 OK in 89ms (Views: 81.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pizzas" for 127.0.0.1 at 2012-05-27 15:06:31 +0300
+  Processing by PizzasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DnZbRdKrFXfO8+omUP0YoLNPfMHrVsSiU2WVINmdjdQ=", "pizza"=>{"name"=>"Valid pizza", "cost"=>"fdf", "mass"=>"df", "description"=>"asdfasdfasdf", "diameter"=>"d"}, "commit"=>"Save"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+Rendered pizzas/_form.html.haml (10.7ms)
+Rendered pizzas/new.html.haml within layouts/application (13.7ms)
+Completed 200 OK in 55ms (Views: 16.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/pizzas" for 127.0.0.1 at 2012-05-27 15:06:52 +0300
+  Processing by PizzasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DnZbRdKrFXfO8+omUP0YoLNPfMHrVsSiU2WVINmdjdQ=", "pizza"=>{"name"=>"Valid pizza", "cost"=>"20.70", "mass"=>"df", "description"=>"asdfasdfasdf", "diameter"=>"d"}, "commit"=>"Save"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+Rendered pizzas/_form.html.haml (10.2ms)
+Rendered pizzas/new.html.haml within layouts/application (13.3ms)
+Completed 200 OK in 32ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/pizzas" for 127.0.0.1 at 2012-05-27 15:06:58 +0300
+  Processing by PizzasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DnZbRdKrFXfO8+omUP0YoLNPfMHrVsSiU2WVINmdjdQ=", "pizza"=>{"name"=>"Valid pizza", "cost"=>"20,70", "mass"=>"df", "description"=>"asdfasdfasdf", "diameter"=>"d"}, "commit"=>"Save"}
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+Rendered pizzas/_form.html.haml (12.8ms)
+Rendered pizzas/new.html.haml within layouts/application (17.5ms)
+Completed 200 OK in 41ms (Views: 23.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2012-05-27 15:08:29 +0300
+  Processing by PizzasController#index as HTML
+  [1m[35mPizza Load (0.2ms)[0m  SELECT `pizzas`.* FROM `pizzas`
+Rendered pizzas/index.html.haml within layouts/application (15.4ms)
+Completed 200 OK in 26ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pizzas/new" for 127.0.0.1 at 2012-05-27 15:09:21 +0300
+  Processing by PizzasController#new as HTML
+Rendered pizzas/_form.html.haml (12.4ms)
+Rendered pizzas/new.html.haml within layouts/application (15.3ms)
+Completed 200 OK in 26ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2012-05-27 15:09:35 +0300
+  Processing by PizzasController#index as HTML
+  [1m[36mPizza Load (0.2ms)[0m  [1mSELECT `pizzas`.* FROM `pizzas`[0m
+Rendered pizzas/index.html.haml within layouts/application (19.2ms)
+Completed 200 OK in 32ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pizzas/2" for 127.0.0.1 at 2012-05-27 15:11:57 +0300
+  Processing by PizzasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mPizza Load (0.2ms)[0m  [1mSELECT `pizzas`.* FROM `pizzas` WHERE `pizzas`.`id` = 2 LIMIT 1[0m
+Rendered pizzas/show.html.haml within layouts/application (45.5ms)
+Completed 200 OK in 81ms (Views: 51.4ms | ActiveRecord: 0.6ms)
