@@ -1,0 +1,27 @@
+%h1 Pizza ordering
+%hr
+%br
+- @pizzas.each do |pizza|  
+  .pizza_item
+    %table
+      %tr
+        %td{:class => "pizza_image"}
+          .photo
+            = image_tag pizza.photo.url(:small)
+        %td  
+          .pizza_details  
+            %h2= pizza.name
+            %p="Cost: $#{pizza.cost} Mass: #{pizza.mass} g Diameter: #{pizza.diameter} cm"
+            %hr
+            .pizza_description
+              %b= "Description:"
+              %br
+              = pizza.description 
+            %hr
+            .pizza_actions
+              = "Quantity"
+              %select
+                - for i in 1..10
+                  %option{:value => i}
+                    =i  
+              = link_to '+ Add to Cart', "#"

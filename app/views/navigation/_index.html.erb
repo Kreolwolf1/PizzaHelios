@@ -1,10 +1,17 @@
-<ul id="navigation">
+<ul id="navigation">  
   <li>
-	<%= link_to "Buy pizza", users_path %>
+	<%= link_to "Main page", root_path %>
   </li>
 
-  <li>
-	<%= link_to "Manager pizza", pizzas_path %>
-  </li>
+  <% if (current_user && (current_user.role? :admin)) %>
+    <li>
+	  <%= link_to "Manage users", users_path %>
+    </li>
+
+    <li>
+	  <%= link_to "Manage pizza catalog", pizzas_path %>
+    </li>
+  <% end %>
+
 </ul>
 <div class="clear"></div>

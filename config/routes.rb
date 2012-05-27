@@ -1,6 +1,8 @@
 PizzaHelios::Application.routes.draw do
+  get "main/index"
+
   devise_for :users
-  root :to => "users#index"
+  root :to => "main#index"
   resources :users
   resources :pizzas
 
