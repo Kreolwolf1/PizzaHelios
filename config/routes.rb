@@ -1,7 +1,11 @@
 PizzaHelios::Application.routes.draw do
   resources :line_items
 
-  resources :carts
+  resources :carts do
+    collection do
+      get :add_user
+    end
+  end
 
   get "main/index"
 

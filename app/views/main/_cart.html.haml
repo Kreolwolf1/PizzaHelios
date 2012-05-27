@@ -1,8 +1,10 @@
 .cart
   %h3 Your cart:
-  = @cart.total_price
-  - @cart.line_items.each do |item|
-    %li 
-      = [item.pizza.name," x ",item.count].join(" ").to_s
-      = item.total_price   
+  - if @cart
+    - @cart.line_items.each do |item|
+      %li  
+        = [item.pizza.name," x ",item.count].join(" ").to_s
+        = item.total_price
+    - if @cart.line_items.count > 0
+      = link_to 'Show', @cart
 

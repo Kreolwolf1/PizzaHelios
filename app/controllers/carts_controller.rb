@@ -1,11 +1,20 @@
 class CartsController < ApplicationController
-  # GET /carts
-  # GET /carts.xml
+  load_and_authorize_resource  
+
   def index
     @carts = Cart.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
+      format.xml  { render :xml => @carts }
+    end
+  end
+
+  def add_user
+    current_user.carts << current_cart
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html {redirect_to root_path, :notice => "Cart was successfully created."}
       format.xml  { render :xml => @carts }
     end
   end

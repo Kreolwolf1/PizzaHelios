@@ -1,6 +1,25 @@
 %p#notice= notice
-
-
-= link_to 'Edit', edit_cart_path(@cart)
-\|
-= link_to 'Back', carts_path
+ 
+.cart_show
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Mass
+        %th Diameter
+        %th Cost one
+        %th Count
+        %th Cost Total
+        %th Action
+    %tbody
+      - @cart.line_items.each do |line|
+        %tr
+          %td= line.pizza.name
+          %td= line.pizza.mass
+          %td= line.pizza.diameter
+          %td= line.pizza.cost
+          %td= line.count
+          %td= line.total_price
+          %td= link_to 'Delete', line, :confirm => 'Are you sure?', :method => :delete
+%h3 Total: #{@cart.total_price}
+= link_to 'Buy', "/carts/add_user?cart_id=37"
