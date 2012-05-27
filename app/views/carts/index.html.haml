@@ -1,17 +1,36 @@
 %h1 Listing carts
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @carts.each do |cart|
-    %tr
-      %td= link_to 'Show', cart
-      %td= link_to 'Edit', edit_cart_path(cart)
-      %td= link_to 'Destroy', cart, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
 = link_to 'New Cart', new_cart_path
+%hr
+%border
+.carts
+  - @carts.each do |cart|
+    .cart_item{:style => "width: 600px; border: 1px solid blue"}
+      %table{:class => "cart_table", :cellpadding => "5", :style => "border: 1px solid red; margin: 10px"}
+        %tr
+          %th
+            = "Pizza"
+          %th
+            = "Cost"
+          %th
+            = "Quantity"
+          %th
+            = "Total"  
+        - cart.line_items.each do |line_item|
+          %tr
+            %td    
+              = line_item.pizza.name
+            %td
+              = line_item.pizza.cost
+            %td
+              = line_item.count
+            %td
+              = line_item.total_price 
+      .details{:style => "margin-left: 10px"}
+        - if cart.user
+          %p= "User: #{cart.user.long_name} Phone: #{cart.user.telephone}"
+          %p= "Total price: #{cart.total_price}"         
+      .actions{:style => "margin-left: 10px"}
+        = "Actions: "    
+        = link_to 'Done', "carts/status?id=#{cart.id}&status=done"
+        = link_to 'Reject', "carts/status?id=#{cart.id}&status=rejected"
+        = link_to 'Destroy', cart, :confirm => 'Are you sure?', :method => :delete

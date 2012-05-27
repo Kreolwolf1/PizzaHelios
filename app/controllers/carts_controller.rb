@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.xml
   def index
-    @carts = Cart.all
+    @carts = Cart.active
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +41,7 @@ class CartsController < ApplicationController
   # POST /carts.xml
   def create
     @cart = Cart.new(params[:cart])
+    @cart.status = "active"
 
     respond_to do |format|
       if @cart.save
@@ -69,6 +70,14 @@ class CartsController < ApplicationController
     end
   end
 
+  def status
+     @cart = Cart.find(params[:id])
+     respond_to do |format|
+     if @cart.update_attributes(:status => params[:status])
+        format.html { redirect_to("/index", :notice => 'Something went wrong') }
+     end
+    end
+  end
   # DELETE /carts/1
   # DELETE /carts/1.xml
   def destroy
