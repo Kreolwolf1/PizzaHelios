@@ -1,6 +1,7 @@
 %h1 Pizza ordering
 %hr
 %br
+= session[:cart_id]
 - @pizzas.each do |pizza|  
   .pizza_item
     %table
@@ -19,9 +20,12 @@
               = pizza.description 
             %hr
             .pizza_actions
-              = "Quantity"
-              %select
-                - for i in 1..10
-                  %option{:value => i}
-                    =i  
-              = link_to '+ Add to Cart', "#"
+              %form{:action=>line_items_path(pizza_id: pizza), :method=>"POST"}
+                %label "Quantity"
+                %select{:name => "count"}
+                  - for i in 1..10
+                    %option{:value => i}
+                      =i  
+                %input{:type=>'submit', :name=>"add_to_cart", :value =>'+ Add To Cart'}
+              
+

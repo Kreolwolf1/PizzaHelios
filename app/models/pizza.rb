@@ -10,4 +10,22 @@ class Pizza < ActiveRecord::Base
 
 	validates_attachment_size :photo, :less_than => 5.megabytes
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image.png'] 
+
+	has_many :line_items
+	before_destroy :delete_all_depends
+
+	private
+
+
+		def delete_all_depends
+			if line_items.empty?
+				return true
+			else
+				errors.add(:base, 'Line Items present')
+				return false
+			end
+		end
+
+
+
 end
