@@ -1,0 +1,36 @@
+h1, h2 {
+	color: red;
+}
+
+.pizza_item {
+	border: 2px solid #d88c2e;
+	width: 600px;
+	margin: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+
+.pizza_image {
+	width: 170px;
+}
+
+.photo{
+	margin: 5px;
+}
+
+.pizza_details{
+	margin: 10px;
+} 
+
+.pizza_form{
+	width: 600px;
+}
+
+.pizza_description{
+	text-align: justify;
+}
+
+.pizza_actions{
+	margin: 10px;
+} 

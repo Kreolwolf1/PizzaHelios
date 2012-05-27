@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (2.1.2)
     cancan (1.6.7)
+    cocaine (0.2.1)
     devise (1.5.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -54,6 +55,12 @@ GEM
     mime-types (1.18)
     mysql2 (0.2.7)
     orm_adapter (0.0.7)
+    paperclip (3.0.3)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.3)
     rack (1.2.5)
     rack-mount (0.6.14)
@@ -93,4 +100,5 @@ DEPENDENCIES
   devise
   haml-rails
   mysql2 (= 0.2.7)
+  paperclip (~> 3.0)
   rails (= 3.0.9)

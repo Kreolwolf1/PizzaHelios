@@ -1,0 +1,25 @@
+%h1 Pizza Catalog
+= link_to '+ Add Pizza', new_pizza_path
+%hr
+%br
+- @pizzas.each do |pizza|  
+  .pizza_item
+    %table
+      %tr
+        %td{:class => "pizza_image"}
+          .photo
+            = image_tag pizza.photo.url(:small)
+        %td  
+          .pizza_details  
+            %h2= pizza.name
+            %p="Cost: $#{pizza.cost} Mass: #{pizza.mass} g Diameter: #{pizza.diameter} cm"
+            %hr
+            .pizza_description
+              %b= "Description:"
+              %br
+              = truncate(pizza.description, :length => 80) 
+            %hr
+            .pizza_actions
+              = link_to 'Show', pizza
+              = link_to 'Edit', edit_pizza_path(pizza)
+              = link_to 'Destroy', pizza, :confirm => 'Are you sure?', :method => :delete

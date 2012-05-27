@@ -44,6 +44,21 @@ ActiveRecord::Schema.define(:version => 20120527111801) do
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+end
+ActiveRecord::Schema.define(:version => 20120526161120) do
+
+  create_table "pizzas", :force => true do |t|
+    t.string   "name"
+    t.string   "cost"
+    t.integer  "mass"
+    t.text     "description"
+    t.integer  "diameter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

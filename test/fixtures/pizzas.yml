@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  cost: MyString
+  mass: 1
+  description: MyText
+  diameter: 1
+
+two:
+  name: MyString
+  cost: MyString
+  mass: 1
+  description: MyText
+  diameter: 1
