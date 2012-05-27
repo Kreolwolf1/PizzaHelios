@@ -1,5 +1,5 @@
 
-.pizza_form{:style => "width: 600px"}
+.pizza_form
 = form_for @pizza, :html => {:multipart => true} do |f|
   -if @pizza.errors.any?
     #error_explanation

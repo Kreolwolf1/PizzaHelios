@@ -1,20 +1,20 @@
 %p#notice= notice
-.pizza_item{:style => "width: 600px; margin: 10px"}
+.pizza_item
   %table
     %tr
-      %td{:style => "width: 170px;"}
-        .photo{:style => "margin: 5px"}
+      %td
+        .photo
           = image_tag @pizza.photo.url(:normal)
       %td  
-        .pizza_details{:style => "margin: 10px"}  
-          %h2{:style => "color: red"}= @pizza.name
+        .pizza_details  
+          %h2= @pizza.name
           %p="Cost: $#{@pizza.cost} Mass: #{@pizza.mass} g Diameter: #{@pizza.diameter} cm"
           %hr
-          .pizza_description{:style => "text-align: justify"}
+          .pizza_description
             %b= "Description:"
             %br
             = simple_format(@pizza.description) 
-.pizza_actions{:style => "margin: 10px"}          
+.pizza_actions          
   = link_to 'Edit', edit_pizza_path(@pizza)
   \|
   = link_to 'Go to the catalog', pizzas_path
