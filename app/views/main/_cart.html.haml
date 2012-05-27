@@ -1,0 +1,6 @@
+.cart
+  %h3 Your cart:
+  - @cart.line_items.each do |item|
+    %li 
+      = [item.pizza.name," x ",item.count].join(" ").to_s   
+

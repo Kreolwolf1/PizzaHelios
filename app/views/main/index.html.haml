@@ -1,31 +1,33 @@
 %h1 Pizza ordering
 %hr
 %br
-= session[:cart_id]
-- @pizzas.each do |pizza|  
-  .pizza_item
-    %table
-      %tr
-        %td{:class => "pizza_image"}
-          .photo
-            = image_tag pizza.photo.url(:small)
-        %td  
-          .pizza_details  
-            %h2= pizza.name
-            %p="Cost: $#{pizza.cost} Mass: #{pizza.mass} g Diameter: #{pizza.diameter} cm"
-            %hr
-            .pizza_description
-              %b= "Description:"
-              %br
-              = pizza.description 
-            %hr
-            .pizza_actions
-              %form{:action=>line_items_path(pizza_id: pizza), :method=>"POST"}
-                %label "Quantity"
-                %select{:name => "count"}
-                  - for i in 1..10
-                    %option{:value => i}
-                      =i  
-                %input{:type=>'submit', :name=>"add_to_cart", :value =>'+ Add To Cart'}
+.contener_items
+  - @pizzas.each do |pizza|  
+    .pizza_item
+      %table
+        %tr
+          %td{:class => "pizza_image"}
+            .photo
+              = image_tag pizza.photo.url(:small)
+          %td  
+            .pizza_details  
+              %h2= pizza.name
+              %p="Cost: $#{pizza.cost} Mass: #{pizza.mass} g Diameter: #{pizza.diameter} cm"
+              %hr
+              .pizza_description
+                %b= "Description:"
+                %br
+                = pizza.description 
+              %hr
+              .pizza_actions
               
-
+                = form_tag(line_items_path(pizza_id: pizza), :method => "post") do   
+                  %label
+                    = "Quantity"
+                  %select{:name =>"count"}
+                    -for i in 1..10
+                      %option{:value => i}
+                        =i
+                
+                  = button_to '+ Add to Cart', line_items_path(pizza_id: pizza)
+= render :partial => "main/cart" 

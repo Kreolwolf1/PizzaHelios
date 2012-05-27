@@ -44,3 +44,15 @@ li{
 .clear{
 	clear: both;
 }
+.contener_items{
+	float: left;
+}
+.cart{
+	float: right;
+	width: 200px;
+	border: 1px solid black;
+	border-radius: 10px;
+	min-height: 100px;
+	padding: 20px;
+	text-align: left;
+}
