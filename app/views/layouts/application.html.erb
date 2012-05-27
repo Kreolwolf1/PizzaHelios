@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>PizzaHelios</title>
+
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+<%= render 'devise/menu/registration_items' %>
+<%= render 'devise/menu/login_items' %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>
