@@ -4,6 +4,7 @@ PizzaHelios::Application.routes.draw do
   resources :carts do
     collection do
       get :status
+      get :add_user
     end
   end
 

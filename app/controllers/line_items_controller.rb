@@ -9,7 +9,7 @@ class LineItemsController < ApplicationController
   # POST /line_items
   def create
     @cart = current_cart
-    if @line_item = LineItem.where(:pizza_id => params[:pizza_id]).first  
+    if @line_item = LineItem.where(:pizza_id => params[:pizza_id], :cart_id => @cart.id).first  
       @line_item.count += params[:count].to_i
       @line_item.save
     else
@@ -27,21 +27,6 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # PUT /line_items/1
-  # PUT /line_items/1.xml
-  def update
-    @line_item = LineItem.find(params[:id])
-
-    respond_to do |format|
-      if @line_item.update_attributes(params[:line_item])
-        format.html { redirect_to(@line_item, :notice => 'Line item was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @line_item.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /line_items/1
   # DELETE /line_items/1.xml
@@ -50,8 +35,11 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(line_items_url) }
-      format.xml  { head :ok }
+     if current_cart.line_items.count == 0 
+      format.html { redirect_to root_path }
+     else 
+      format.html { redirect_to current_cart }
+     end
     end
   end
 end

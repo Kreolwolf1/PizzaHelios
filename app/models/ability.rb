@@ -7,6 +7,8 @@ class Ability
          can :manage, :all
        else
          can :read, :pizza
+       	 can :show, Cart
+       	 can :add_user, Cart	
        end
   end
 end
