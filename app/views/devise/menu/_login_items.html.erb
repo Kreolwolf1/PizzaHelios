@@ -1,17 +1,25 @@
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>
-  </li>
-<% end %>
-<li>
-  User:
-  <% if current_user %>
-    <%= current_user.name %>
+<ul id="registration">
+  <% if user_signed_in? %>
+    <li>  <%= link_to "Edit account", edit_user_registration_path %>  </li>
   <% else %>
-    (not logged in)
+    <li>   <%= link_to "Sign up", new_user_registration_path  %>  </li>
   <% end %>
-</li>
+
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path)  %>
+    </li>
+  <% end %>
+  <li>
+    User:
+    <% if current_user %>
+      <%= current_user.long_name %>
+    <% else %>
+      (not logged in)
+    <% end %>
+  </li>
+</ul>

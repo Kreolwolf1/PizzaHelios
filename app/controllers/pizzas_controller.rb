@@ -1,4 +1,5 @@
 class PizzasController < ApplicationController
+  load_and_authorize_resource
   # GET /pizzas
   # GET /pizzas.xml
   def index

@@ -1,7 +1,9 @@
 h1, h2 {
 	color: red;
 }
-
+li{
+	list-style: none;	
+}
 .pizza_item {
 	border: 2px solid #d88c2e;
 	width: 600px;
@@ -34,3 +36,11 @@ h1, h2 {
 .pizza_actions{
 	margin: 10px;
 } 
+
+#navigation li{
+	float:left;
+	margin-left: 20px;
+}
+.clear{
+	clear: both;
+}
