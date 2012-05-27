@@ -1,6 +1,8 @@
 .cart
   %h3 Your cart:
+  = @cart.total_price
   - @cart.line_items.each do |item|
     %li 
-      = [item.pizza.name," x ",item.count].join(" ").to_s   
+      = [item.pizza.name," x ",item.count].join(" ").to_s
+      = item.total_price   
 
