@@ -1,5 +1,4 @@
 %h1 Listing carts
-= link_to 'New Cart', new_cart_path
 %hr
 %border
 .carts
@@ -31,6 +30,6 @@
           %p= "Total price: #{cart.total_price}"         
       .actions{:style => "margin-left: 10px"}
         = "Actions: "    
-        = link_to 'Done', "carts/status?id=#{cart.id}&status=done"
-        = link_to 'Reject', "carts/status?id=#{cart.id}&status=rejected"
+        = link_to 'Done', "carts/add_done?id=#{cart.id}&status=done"
+        = link_to 'Reject', "carts/add_done?id=#{cart.id}&status=rejected"
         = link_to 'Destroy', cart, :confirm => 'Are you sure?', :method => :delete

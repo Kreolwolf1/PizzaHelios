@@ -12,6 +12,7 @@ class CartsController < ApplicationController
 
   def add_user
     current_user.carts << current_cart
+    current_cart.update_attributes(:status => "active")  
     session[:cart_id] = nil
     respond_to do |format|
       format.html {redirect_to root_path, :notice => "Cart was successfully created."}
@@ -79,12 +80,14 @@ class CartsController < ApplicationController
     end
   end
 
-  def status
-     @cart = Cart.find(params[:id])
-     @cart.update_attributes(:status => params[:status])
- 
+  def add_done
+     @cart = Cart.find(params[:id]) 
      respond_to do |format|
-        format.html { redirect_to("/index", :notice => 'Something went wrong') }
+      if @cart.update_attributes(:status => params[:status])   
+        format.html { redirect_to(carts_url, :notice => 'Something went wrong') }
+      else
+        format.html { redirect_to(carts_url, :notice => 'Cart was successfully updated.') }
+      end
      end
      
   end
