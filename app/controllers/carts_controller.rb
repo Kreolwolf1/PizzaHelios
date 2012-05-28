@@ -81,11 +81,12 @@ class CartsController < ApplicationController
 
   def status
      @cart = Cart.find(params[:id])
+     @cart.update_attributes(:status => params[:status])
+ 
      respond_to do |format|
-     if @cart.update_attributes(:status => params[:status])
         format.html { redirect_to("/index", :notice => 'Something went wrong') }
      end
-    end
+     
   end
   # DELETE /carts/1
   # DELETE /carts/1.xml
